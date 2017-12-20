@@ -8,17 +8,15 @@
 #include "CaptchaSolver.h"
 #include <iostream>
 
-InverseCaptcha::CaptchaSolver::CaptchaSolver(std::forward_list<int> const& iCaptcha) : captcha(iCaptcha) {  
+InverseCaptcha::CaptchaSolver::CaptchaSolver(std::forward_list<uint8_t> const& iCaptcha) : captcha(iCaptcha) {
 }
 
 int InverseCaptcha::CaptchaSolver::solve() const {
-    auto sum = 0;
-    auto next = captcha.cbegin();
+    auto sum    = 0;
+    auto next   = captcha.cbegin();
     for (auto it = captcha.cbegin(); it != captcha.cend(); ++it) {
-        next != captcha.end() ? ++next : next = captcha.cbegin();
-        *it == *next ? sum += *it : sum += 0;
-        std::cout << *it;
+        next = (++next != captcha.end()) ? next : captcha.cbegin();
+        sum += (*it == *next) ? *it : 0;
     }
-    std::cout << "\n" << sum << "\n";
     return sum;
 }

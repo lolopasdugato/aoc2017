@@ -17,14 +17,14 @@ namespace InverseCaptcha {
  * @brief Class defining a captcha.
  */
 class CaptchaSolver {
-    std::forward_list<int> captcha;
+    std::forward_list<uint8_t> captcha;
  public:
     /**
      * @brief Captcha solver constructor.
      *
      * @param iCaptcha The captcha to work with.
      */
-    explicit CaptchaSolver(std::forward_list<int> const& iCaptcha);
+    explicit CaptchaSolver(std::forward_list<uint8_t> const& iCaptcha);
 
     /**
      * @brief Solves the captcha.
