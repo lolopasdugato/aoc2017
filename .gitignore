@@ -26,7 +26,16 @@
 *.a
 *.lib
 
+# Binary directories
+bin/
+build/
+
 # Executables
 *.exe
 *.out
 *.app
+
+# Configuration files
+*.vimrc
+*cmake.*
+compile_commands.json
