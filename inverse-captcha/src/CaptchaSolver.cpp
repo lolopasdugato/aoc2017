@@ -6,7 +6,6 @@
  */
 
 #include "CaptchaSolver.h"
-#include <iostream>
 
 InverseCaptcha::CaptchaSolver::CaptchaSolver(std::forward_list<uint8_t> const& iCaptcha) : captcha(iCaptcha) {
 }

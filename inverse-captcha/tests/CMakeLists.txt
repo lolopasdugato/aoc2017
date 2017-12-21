@@ -12,6 +12,15 @@ file(GLOB SOURCES "*.cpp")
 #Add program target main
 add_executable(${PROJECT_NAME} ${SOURCES})
 
+# Dealing with resources to be copied in binary dir
+file(GLOB RESOURCES "resources/*")
+
+foreach(RESOURCE ${RESOURCES})
+    message(STATUS "RESOURCE:  ${RESOURCE}")
+    get_filename_component(RESOURCE_NAME ${RESOURCE} NAME)
+    configure_file(${RESOURCE} resources/${RESOURCE_NAME} COPYONLY)
+endforeach()
+
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
     inverse-captcha
