@@ -16,7 +16,6 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 file(GLOB RESOURCES "resources/*")
 
 foreach(RESOURCE ${RESOURCES})
-    message(STATUS "RESOURCE:  ${RESOURCE}")
     get_filename_component(RESOURCE_NAME ${RESOURCE} NAME)
     configure_file(${RESOURCE} resources/${RESOURCE_NAME} COPYONLY)
 endforeach()
